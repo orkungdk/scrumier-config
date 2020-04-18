@@ -1,4 +1,4 @@
-package com.mcan.config;
+package com.ogedik.config;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
