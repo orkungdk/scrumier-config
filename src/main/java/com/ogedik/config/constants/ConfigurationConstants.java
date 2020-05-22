@@ -12,10 +12,16 @@ public class ConfigurationConstants {
     public static final String CONFIG = "/configuration";
     public static final String JIRA = "/jira";
     public static final String MAIL = "/mail";
+    public static final String IDENTIFIER = "/{key}";
   }
 
   public static class COLS {
-    public static final String NAME = "name";
-    public static final String DATA = "data";
+    public static final String PROPERTY_KEY = "propertyKey";
+    public static final String PROPERTY_VALUE = "propertyValue";
+    public static final String RESOURCE_ID = "resourceId";
+    public static final String CREATED_AT = "createdAt";
+    public static final String UPDATED_AT = "updatedAt";
+    public static final String CREATED_BY = "createdBy";
+    public static final String UPDATED_BY = "updatedBy";
   }
 }

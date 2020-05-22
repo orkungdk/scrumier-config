@@ -3,18 +3,18 @@
  */
 package com.ogedik.config.controller;
 
-import com.ogedik.config.constants.ConfigurationConstants;
-import com.ogedik.config.model.JiraIntegrationConfig;
-import com.ogedik.config.model.MailServerConfig;
-import com.ogedik.config.service.ConfigurationService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-import tr.com.ogedik.commons.response.AbstractResponse;
+
+import com.ogedik.config.constants.ConfigurationConstants;
+import com.ogedik.config.model.ConfigurationProperty;
+import com.ogedik.config.response.ConfigurationResponse;
+import com.ogedik.config.service.ConfigurationService;
 
 /**
  * @author orkun.gedik
@@ -28,26 +28,37 @@ public class ConfigurationController {
   @Autowired
   private ConfigurationService configurationService;
 
-//  @Value("${jira-instance}")
-  private JiraIntegrationConfig jiraIntegrationConfig;
-//  @Value("${mail-server}")
-  private MailServerConfig mailServerConfig;
-
+  /**
+   * Returns the Jira instance properties. If properties are not configured, it returns default values.
+   *
+   * @return {@link ConfigurationResponse} that contains Jira configuration properties
+   */
   @GetMapping(ConfigurationConstants.Paths.JIRA)
-  public AbstractResponse getJiraIntegrationDefinition() {
-    logger.info("The request has been received to retrieve Jira Integration Definitions.");
-    return AbstractResponse.build(jiraIntegrationConfig);
+  public ConfigurationResponse getJiraInstanceConfig() {
+    logger.info("The request has been received to retrieve JIRA instance configuration.");
+    return ConfigurationResponse.build(configurationService.getJiraConfiguration());
   }
 
+  /**
+   * Returns the mail server instance properties. If properties are not configured, it returns default values.
+   *
+   * @return {@link ConfigurationResponse} that contains mail server configuration properties
+   */
   @GetMapping(ConfigurationConstants.Paths.MAIL)
-  public AbstractResponse getMailServerDefinition() {
-    logger.info("The request has been received to retrieve Mail Server Definitions.");
-    return AbstractResponse.build(this.mailServerConfig);
+  public ConfigurationResponse getMailServerConfig() {
+    logger.info("The request has been received to retrieve Mail Server configuration.");
+    return ConfigurationResponse.build(configurationService.getMailServiceConfiguration());
   }
 
-  @GetMapping
-  public AbstractResponse getOperationPermissions() {
-    logger.info("The request has been received to retrieve all operations and permissions.");
-    return AbstractResponse.build(this.configurationService.getOperationPermissions());
+  /**
+   * Inserts a property to persistence by key if it is one of the acceptable property key.
+   *
+   * @param property the {@link ConfigurationProperty} to be inserted
+   * @return {@link ConfigurationResponse} that contains inserted property result
+   */
+  @PostMapping
+  public ConfigurationResponse configureProperty(ConfigurationProperty property) {
+    logger.info("The request has been received to configure property {}.", property.toString());
+    return ConfigurationResponse.build(configurationService.configure(property));
   }
 }

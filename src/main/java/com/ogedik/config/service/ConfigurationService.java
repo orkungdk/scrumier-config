@@ -3,33 +3,18 @@
  */
 package com.ogedik.config.service;
 
-import com.ogedik.config.model.JiraIntegrationConfig;
-import com.ogedik.config.model.MailServerConfig;
-import com.ogedik.config.model.PermissionConfig;
+import java.util.List;
+
+import com.ogedik.config.model.ConfigurationProperty;
 
 /**
  * @author orkun.gedik
  */
 public interface ConfigurationService {
 
-  /**
-   * Returns the integrated Jira Configuration
-   * 
-   * @return {@link JiraIntegrationConfig}
-   */
-  JiraIntegrationConfig getJiraIntegrationConfig();
+  List<ConfigurationProperty> getJiraConfiguration();
 
-  /**
-   * Returns the integrated Mail Server Configuration
-   *
-   * @return {@link MailServerConfig}
-   */
-  MailServerConfig getMailServerConfig();
+  List<ConfigurationProperty> getMailServiceConfiguration();
 
-  /**
-   * Returns the integrated Permission Configs
-   *
-   * @return {@link PermissionConfig}
-   */
-  PermissionConfig getOperationPermissions();
+  ConfigurationProperty configure(ConfigurationProperty property);
 }

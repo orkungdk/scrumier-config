@@ -1,12 +1,13 @@
 package com.ogedik.config.constants;
 
-import java.io.Serializable;
-
 /**
  * @author orkun.gedik
  */
-public enum AuthType implements Serializable {
+public enum AuthType {
 
-  BasicAuth, OAuth2
+    NO_AUTH,
 
+    BASIC_AUTH,
+
+    OAUTH2;
 }
