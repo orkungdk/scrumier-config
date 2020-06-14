@@ -7,13 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.ogedik.config.constants.GenericProperty;
 import com.ogedik.config.constants.JiraProperty;
 import com.ogedik.config.constants.MailProperty;
 import com.ogedik.config.model.ConfigurationProperty;
+import com.ogedik.config.model.JiraTestConnectionRequest;
 import com.ogedik.config.persistence.manager.ConfigurationRepositoryManager;
+import com.ogedik.config.rest.JiraRestHandler;
 import com.ogedik.config.service.ConfigurationService;
 import com.ogedik.config.validator.ConfigurationPropertyValidator;
 
@@ -45,6 +48,25 @@ public class ConfigurationServiceImpl implements ConfigurationService {
     return repositoryManager.insertProperty(property);
   }
 
+  @Override
+  public HttpStatus testConnection(JiraTestConnectionRequest jiraTestConnectionRequest) {
+    validator.validateJiraConfig(jiraTestConnectionRequest);
+
+    return JiraRestHandler.testConnection(jiraTestConnectionRequest);
+  }
+
+  @Override
+  public Boolean setUp(List<ConfigurationProperty> configurationProperties) {
+    ConfigurationProperty insertedProperty;
+    for (ConfigurationProperty property : configurationProperties) {
+      insertedProperty = configure(property);
+      if (insertedProperty == null) {
+        return Boolean.FALSE;
+      }
+    }
+    return Boolean.TRUE;
+  }
+
   private List<ConfigurationProperty> retrieveConfig(GenericProperty[] values) {
     List<ConfigurationProperty> properties = new ArrayList<>();
 
@@ -55,13 +77,11 @@ public class ConfigurationServiceImpl implements ConfigurationService {
         ConfigurationProperty emptyProperty = new ConfigurationProperty();
         emptyProperty.setPropertyKey(genericProperty.name());
         emptyProperty.setPropertyValue(genericProperty.getDefaultValue());
-        emptyProperty.setDescription(genericProperty.getDescription());
         properties.add(emptyProperty);
       } else {
         if (config.getPropertyValue() == null) {
           config.setPropertyValue(genericProperty.getDefaultValue());
         }
-        config.setDescription(genericProperty.getDescription());
         properties.add(config);
       }
     }

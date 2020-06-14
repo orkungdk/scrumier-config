@@ -33,8 +33,7 @@ public class ConfigurationRepositoryManager {
   public ConfigurationProperty find(String configKey) {
 
     ConfigurationPropertyEntity entity = configurationRepository.findByPropertyKey(configKey);
-    logger.info("Configuration property is retrieved for key : {} and value : {}", entity.getPropertyKey(),
-        entity.getPropertyValue());
+    logger.info("Configuration property is retrieved. Values: {}", entity);
 
     return configurationMapper.convert(entity);
   }
@@ -54,7 +53,6 @@ public class ConfigurationRepositoryManager {
     }
 
     ConfigurationPropertyEntity result = configurationRepository.save(requestedEntity);
-
     return configurationMapper.convert(result);
   }
 }

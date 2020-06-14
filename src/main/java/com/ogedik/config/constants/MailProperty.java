@@ -10,16 +10,14 @@ import lombok.Getter;
  */
 @Getter
 public enum MailProperty implements GenericProperty {
-  MAIL_SERVER("Mail Server", null);
+  SMTP_HOST(null),
+  SMTP_PORT(null),
+  SMTP_USERNAME(null),
+  SMTP_PASSWORD(null);
 
-  // ToDo: Add Mail Server Configs
-
-  private String description;
   private String defaultValue;
 
-  MailProperty(String description, String defaultValue) {
-    this.description = description;
+  MailProperty(String defaultValue) {
     this.defaultValue = defaultValue;
-
   }
 }

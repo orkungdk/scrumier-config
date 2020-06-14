@@ -3,19 +3,19 @@
  */
 package com.ogedik.config.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import model.AbstractBo;
 
 /**
  * @author orkun.gedik
  */
 @Getter
 @Setter
-public class ConfigurationProperty extends AbstractBo {
-
-  private String propertyKey;
-
-  private String propertyValue;
-
+@AllArgsConstructor
+@NoArgsConstructor
+public class JiraAuthResponse {
+  private JiraSession session;
+  private JiraLoginInfo loginInfo;
 }

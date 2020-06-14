@@ -19,7 +19,7 @@ import com.ogedik.config.service.ConfigurationService;
 /**
  * @author orkun.gedik
  */
-@RestController(ConfigurationConstants.Paths.CONFIG)
+@RestController
 @RefreshScope
 public class ConfigurationController {
 

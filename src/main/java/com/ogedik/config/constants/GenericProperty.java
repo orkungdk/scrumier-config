@@ -8,7 +8,5 @@ public interface GenericProperty {
 
   String name();
 
-  String getDescription();
-
   String getDefaultValue();
 }

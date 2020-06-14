@@ -5,17 +5,16 @@ package com.ogedik.config.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import model.AbstractBo;
+import lombok.ToString;
 
 /**
  * @author orkun.gedik
  */
 @Getter
 @Setter
-public class ConfigurationProperty extends AbstractBo {
-
-  private String propertyKey;
-
-  private String propertyValue;
-
+@ToString
+public class JiraTestConnectionRequest {
+  private String baseUrl;
+  private String username;
+  private String password;
 }
