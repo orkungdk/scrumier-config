@@ -3,9 +3,10 @@
  */
 package com.ogedik.config.model;
 
+import tr.com.ogedik.commons.annotation.NotNull;
 import lombok.Getter;
 import lombok.Setter;
-import model.AbstractBo;
+import tr.com.ogedik.commons.model.AbstractBo;
 
 /**
  * @author orkun.gedik
@@ -14,8 +15,9 @@ import model.AbstractBo;
 @Setter
 public class ConfigurationProperty extends AbstractBo {
 
+  @NotNull
   private String propertyKey;
-
+  @NotNull
   private String propertyValue;
 
 }

@@ -3,15 +3,13 @@
  */
 package com.ogedik.config.entity;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import com.ogedik.config.constants.ConfigurationConstants;
 
-import entity.AbstractEntity;
+import tr.com.ogedik.commons.entity.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

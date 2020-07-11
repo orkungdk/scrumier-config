@@ -6,21 +6,19 @@ package com.ogedik.config.service;
 import java.util.List;
 
 import com.ogedik.config.model.ConfigurationProperty;
-import com.ogedik.config.model.JiraTestConnectionRequest;
-import org.springframework.http.HttpStatus;
+
+import tr.com.ogedik.commons.request.model.JiraConfigurationProperties;
 
 /**
  * @author orkun.gedik
  */
 public interface ConfigurationService {
 
-  List<ConfigurationProperty> getJiraConfiguration();
+  JiraConfigurationProperties getJiraConfiguration();
 
   List<ConfigurationProperty> getMailServiceConfiguration();
 
   ConfigurationProperty configure(ConfigurationProperty property);
-
-  HttpStatus testConnection(JiraTestConnectionRequest jiraTestConnectionRequest);
 
   Boolean setUp(List<ConfigurationProperty> configurationProperties);
 }

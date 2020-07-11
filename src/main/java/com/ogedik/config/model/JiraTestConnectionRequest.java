@@ -3,9 +3,11 @@
  */
 package com.ogedik.config.model;
 
+import tr.com.ogedik.commons.annotation.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import tr.com.ogedik.commons.model.BusinessObject;
 
 /**
  * @author orkun.gedik
@@ -13,8 +15,11 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class JiraTestConnectionRequest {
+public class JiraTestConnectionRequest implements BusinessObject {
+  @NotNull
   private String baseUrl;
+  @NotNull
   private String username;
+  @NotNull
   private String password;
 }

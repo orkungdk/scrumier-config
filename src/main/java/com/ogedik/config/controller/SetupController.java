@@ -28,12 +28,6 @@ public class SetupController {
   @Autowired
   private ConfigurationService configurationService;
 
-  @PostMapping(ConfigurationConstants.Paths.TEST_JIRA_CONNECTION)
-  public ConfigurationResponse testSetupConnection(@RequestBody JiraTestConnectionRequest jiraTestConnectionRequest) {
-    logger.info("The request has been received to test JIRA instance connection.");
-    return new ConfigurationResponse(configurationService.testConnection(jiraTestConnectionRequest));
-  }
-
   @PostMapping(ConfigurationConstants.Paths.SETUP)
   public ConfigurationResponse setUp(@RequestBody List<ConfigurationProperty> configurationProperties) {
     logger.info("The request has been received to test JIRA instance connection.");
