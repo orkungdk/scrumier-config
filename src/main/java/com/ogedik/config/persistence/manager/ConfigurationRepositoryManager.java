@@ -1,6 +1,3 @@
-/**
- * © 2020 Copyright Amadeus Unauthorised use and disclosure strictly forbidden.
- */
 package com.ogedik.config.persistence.manager;
 
 import java.util.Objects;

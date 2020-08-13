@@ -1,6 +1,3 @@
-/**
- * © 2020 Copyright Amadeus Unauthorised use and disclosure strictly forbidden.
- */
 package com.ogedik.config.model;
 
 import tr.com.ogedik.commons.annotation.NotNull;

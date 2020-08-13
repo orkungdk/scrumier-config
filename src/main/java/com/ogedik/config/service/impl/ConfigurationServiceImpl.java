@@ -1,6 +1,3 @@
-/**
- * © 2020 Copyright Amadeus Unauthorised use and disclosure strictly forbidden.
- */
 package com.ogedik.config.service.impl;
 
 import java.util.List;
@@ -20,7 +17,7 @@ import com.ogedik.config.validator.ConfigurationValidationFacade;
 
 import tr.com.ogedik.commons.expection.ErrorException;
 import tr.com.ogedik.commons.expection.constants.CommonErrorType;
-import tr.com.ogedik.commons.request.model.JiraConfigurationProperties;
+import tr.com.ogedik.commons.rest.request.model.JiraConfigurationProperties;
 
 /**
  * @author orkun.gedik
