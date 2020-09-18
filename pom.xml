@@ -12,7 +12,7 @@
     <artifactId>config</artifactId>
     <version>1.0.0</version>
     <name>config</name>
-    <description>Jira Time Tracking configuration service</description>
+    <description>Scrumier configuration service</description>
 
     <!-- Dependency versions -->
     <properties>
