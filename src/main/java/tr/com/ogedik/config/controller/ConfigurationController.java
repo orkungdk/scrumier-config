@@ -1,16 +1,19 @@
 package tr.com.ogedik.config.controller;
 
-import tr.com.ogedik.config.model.ConfigurationProperty;
-import tr.com.ogedik.config.service.ConfigurationService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import tr.com.ogedik.commons.constants.Services;
 import tr.com.ogedik.commons.rest.AbstractController;
 import tr.com.ogedik.commons.rest.response.AbstractResponse;
+import tr.com.ogedik.config.model.ConfigurationProperty;
+import tr.com.ogedik.config.service.ConfigurationService;
+
+import java.util.Optional;
 
 /**
  * @author orkun.gedik
@@ -29,9 +32,9 @@ public class ConfigurationController extends AbstractController {
      * @return {@link AbstractResponse} that contains Jira configuration properties
      */
     @GetMapping(Services.Path.JIRA)
-    public AbstractResponse getJiraInstanceConfig() {
+    public ResponseEntity getJiraInstanceConfig() {
         logger.info("The request has been received to retrieve JIRA instance configuration.");
-        return AbstractResponse.build(configurationService.getJiraConfiguration());
+        return ResponseEntity.of(Optional.of(configurationService.getJiraConfiguration()));
     }
 
     /**
