@@ -1,7 +1,5 @@
 package tr.com.ogedik.config.controller;
 
-import tr.com.ogedik.config.model.ConfigurationProperty;
-import tr.com.ogedik.config.service.ConfigurationService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +12,8 @@ import tr.com.ogedik.commons.constants.Services;
 import tr.com.ogedik.commons.rest.AbstractController;
 import tr.com.ogedik.commons.rest.response.AbstractResponse;
 import tr.com.ogedik.commons.util.MetaUtils;
+import tr.com.ogedik.config.model.ConfigurationProperty;
+import tr.com.ogedik.config.service.ConfigurationService;
 
 import java.util.List;
 

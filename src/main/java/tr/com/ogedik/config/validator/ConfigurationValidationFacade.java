@@ -1,21 +1,18 @@
 package tr.com.ogedik.config.validator;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.stereotype.Component;
-
-import tr.com.ogedik.config.constants.JiraProperty;
-import tr.com.ogedik.config.exception.ConfigurationErrorType;
-import tr.com.ogedik.config.model.ConfigurationProperty;
-
 import tr.com.ogedik.commons.expection.ErrorException;
 import tr.com.ogedik.commons.model.BusinessObject;
 import tr.com.ogedik.commons.validator.MandatoryFieldValidator;
 import tr.com.ogedik.commons.validator.ValidationFacade;
+import tr.com.ogedik.config.constants.JiraProperty;
+import tr.com.ogedik.config.exception.ConfigurationErrorType;
+import tr.com.ogedik.config.model.ConfigurationProperty;
 
 import javax.annotation.PostConstruct;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author orkun.gedik

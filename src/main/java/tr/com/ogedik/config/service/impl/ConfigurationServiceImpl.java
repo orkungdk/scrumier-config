@@ -1,13 +1,13 @@
 package tr.com.ogedik.config.service.impl;
 
-import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+import tr.com.ogedik.commons.expection.ErrorException;
+import tr.com.ogedik.commons.expection.constants.CommonErrorType;
+import tr.com.ogedik.commons.rest.request.model.JiraConfigurationProperties;
 import tr.com.ogedik.config.constants.GenericProperty;
 import tr.com.ogedik.config.constants.JiraProperty;
 import tr.com.ogedik.config.model.ConfigurationProperty;
@@ -15,9 +15,7 @@ import tr.com.ogedik.config.persistence.manager.ConfigurationRepositoryManager;
 import tr.com.ogedik.config.service.ConfigurationService;
 import tr.com.ogedik.config.validator.ConfigurationValidationFacade;
 
-import tr.com.ogedik.commons.expection.ErrorException;
-import tr.com.ogedik.commons.expection.constants.CommonErrorType;
-import tr.com.ogedik.commons.rest.request.model.JiraConfigurationProperties;
+import java.util.List;
 
 /**
  * @author orkun.gedik

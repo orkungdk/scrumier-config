@@ -1,15 +1,14 @@
 package tr.com.ogedik.config.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-import tr.com.ogedik.config.constants.ConfigurationConstants;
-
-import tr.com.ogedik.commons.entity.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import tr.com.ogedik.commons.entity.AbstractEntity;
+import tr.com.ogedik.config.constants.ConfigurationConstants;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * @author orkun.gedik

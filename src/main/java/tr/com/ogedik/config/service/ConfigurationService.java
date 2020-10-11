@@ -1,10 +1,9 @@
 package tr.com.ogedik.config.service;
 
-import java.util.List;
-
+import tr.com.ogedik.commons.rest.request.model.JiraConfigurationProperties;
 import tr.com.ogedik.config.model.ConfigurationProperty;
 
-import tr.com.ogedik.commons.rest.request.model.JiraConfigurationProperties;
+import java.util.List;
 
 /**
  * @author orkun.gedik
